@@ -1,0 +1,23 @@
+var mongoose = require('mongoose');
+var mongodb = require('./mongodb');
+var model = require('./model');
+//var RegistrationModel = mongoose.model('RegistrationModel');
+
+/////////////////////////////////
+
+function save(data){
+    console.log('inside save >>>>> ' + data);
+    var regModel = new model.RegistrationModel(data);
+    console.log('after model');
+    regModel.save(function(err,regModel){
+        console.log('inside mongoose save');
+        if(err)
+            console.log(err);
+    });
+
+
+}
+
+require('./model')
+
+exports.save = save;
